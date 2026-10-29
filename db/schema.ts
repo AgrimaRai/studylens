@@ -1,4 +1,8 @@
-// Intentionally empty by default.
-// Add Drizzle tables here when the site actually needs a database.
-// See examples/d1/db/schema.ts for an opt-in example.
-export {};
+import { sqliteTable, text, integer } from 'drizzle-orm/sqlite-core';
+export const generationBudget = sqliteTable('generation_budget', {
+ key: text('key').primaryKey(),
+ day: text('day').notNull(),
+ dayCount: integer('day_count').notNull(),
+ minute: text('minute').notNull(),
+ minuteCount: integer('minute_count').notNull(),
+});
